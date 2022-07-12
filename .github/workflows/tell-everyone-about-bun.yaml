@@ -1,0 +1,16 @@
+name: tell everyone about bun
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 13 * * 1-5'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          curl -s -X POST -H "Content-Type: application/json" -d '{"content": "have you guys seen https://bun.sh/ ? Looks promising...."}' "$WEBHOOK_URL"
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}

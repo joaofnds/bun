@@ -2,8 +2,6 @@ name: tell everyone about bun
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 13 * * 1-5'
 
 jobs:
   test:
